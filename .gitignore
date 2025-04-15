@@ -1,11 +1,11 @@
 *
-
 !.gitignore
 !README.md
 !docs/
 !docs/**
 !scripts/
 !scripts/**
-!data/.gitkeep
-!results/.gitkeep
 !*.gitignore
+!data/
+!results/
+!software/
