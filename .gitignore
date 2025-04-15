@@ -8,3 +8,4 @@
 !scripts/**
 !data/.gitkeep
 !results/.gitkeep
+!*.gitignore
