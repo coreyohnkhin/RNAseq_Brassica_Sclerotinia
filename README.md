@@ -1,17 +1,31 @@
-data retrieval - SRA Toolkit
+# *Brassica-Sclerotinia* interaction RNAseq
 
-trimming - cutadapt
+RNA-Seq + DEG analysis of *B. oleracea, B. villosa* with Sclerotinia infection.
 
-QC - fastqc
+## Usage
+```bash
+git clone https://github.com/coreyohnkhin/RNAseq_Brassica_Sclerotinia
+cd RNAseq_Brassica_Sclerotinia
+```
 
-Read mapping - Bowtie2
+### Install dependencies
+```bash
+./scripts/install_sratoolkit.sh
+```
 
-gene expression analysis - R DESseq2 <- this one
+### 1. Data Retrieval
 
-check how data was produced, check if bias in data, data is corrupted etc - thru metadata
+```bash
+./scripts/download-data.sh -a PRJNA706136 -o ./data
+```
+QC - FastQC
 
-read original publication
+Mapping - Bowtie2
 
-stick to genes that have been annotated
+DEG - DESeq2
 
-link DEGs to funcitonal annotations/pathways (Gene Ontology enrichment analysis) - go over A thaliana annotation (homology-based comparison)
+ - check metadata for experimental bias etc.
+
+ - read original paper
+
+ - functional analysis with A thaliana reference, focus on well-annotated genes

@@ -1,14 +1,9 @@
 #!/bin/bash
 
-# Script to download SRA data using sratoolkit
-# Can be run from the RNAseq_Brassica_Sclerotinia directory
-
-# Default values
 DEFAULT_SRA_TOOLKIT_PATH="./software/sratoolkit.3.2.1-ubuntu64/bin"
 DEFAULT_OUTPUT_DIR="./data"
 DEFAULT_ACCESSION="PRJNA706136"
 
-# Help function
 function print_usage {
   echo "Usage: $0 [options]"
   echo "Options:"
@@ -19,7 +14,6 @@ function print_usage {
   exit 1
 }
 
-# Parse command line arguments
 SRA_TOOLKIT_PATH=$DEFAULT_SRA_TOOLKIT_PATH
 OUTPUT_DIR=$DEFAULT_OUTPUT_DIR
 ACCESSION=$DEFAULT_ACCESSION
@@ -52,11 +46,9 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-# Ensure the script works correctly from any location
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 BASE_DIR="$(dirname "$SCRIPT_DIR")"
 
-# Resolve paths if they're relative
 if [[ ! "$SRA_TOOLKIT_PATH" = /* ]]; then
   SRA_TOOLKIT_PATH="$BASE_DIR/$SRA_TOOLKIT_PATH"
 fi
@@ -69,11 +61,9 @@ echo "Using SRA toolkit at: $SRA_TOOLKIT_PATH"
 echo "Saving data to: $OUTPUT_DIR"
 echo "Processing accession: $ACCESSION"
 
-# Create output directory and navigate to it
 mkdir -p "$OUTPUT_DIR"
 cd "$OUTPUT_DIR"
 
-# Configure the SRA toolkit
 $SRA_TOOLKIT_PATH/vdb-config --root -o cache
 
 echo "Downloading metadata for $ACCESSION..."
