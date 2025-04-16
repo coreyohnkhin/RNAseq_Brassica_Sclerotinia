@@ -8,7 +8,7 @@ git clone https://github.com/coreyohnkhin/RNAseq_Brassica_Sclerotinia
 cd RNAseq_Brassica_Sclerotinia
 ```
 
-### Install dependencies
+### Install software
 ```bash
 ./scripts/install_sratoolkit.sh
 ./scripts/install_fastqc.sh
