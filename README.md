@@ -11,12 +11,14 @@ cd RNAseq_Brassica_Sclerotinia
 ### Install dependencies
 ```bash
 ./scripts/install_sratoolkit.sh
+./scripts/install_fastqc.sh
 ```
 
 ### 1. Data Retrieval
 
+Run the below command to download the RNAseq data in the background.
 ```bash
-./scripts/download-data.sh -a PRJNA706136 -o ./data
+nohup ./scripts/download-data.sh -a PRJNA706136 -o ./data > data/download.log 2>&1 &
 ```
 QC - FastQC
 
@@ -28,4 +30,4 @@ DEG - DESeq2
 
  - read original paper
 
- - functional analysis with A thaliana reference, focus on well-annotated genes
+ - functional analysis with *A. thaliana* reference, focus on well-annotated genes
