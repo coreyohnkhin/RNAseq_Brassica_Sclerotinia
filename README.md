@@ -12,6 +12,7 @@ cd RNAseq_Brassica_Sclerotinia
 ```bash
 ./scripts/install_sratoolkit.sh
 ./scripts/install_fastqc.sh
+./scripts/install_bowtie2.sh
 ```
 
 ### 1. Data Retrieval
