@@ -20,7 +20,7 @@ cd RNAseq_Brassica_Sclerotinia
 
 Run the below command to download the RNAseq data in the background.
 ```bash
-nohup ./scripts/download_rnaseq.sh PRJNA706136.txt > data/download_rnaseq.log 2>&1 &
+nohup ./scripts/download_rnaseq.sh data/PRJNA706136.txt > data/download_rnaseq.log 2>&1 &
 ```
 ### 2. QC
 Run the below command to perform QC with `FastQC` on the .fastq files for each run.
