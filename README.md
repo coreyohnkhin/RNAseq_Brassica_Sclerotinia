@@ -1,6 +1,6 @@
 # *Brassica-Sclerotinia* interaction RNAseq
 
-RNA-Seq + DEG analysis of *B. oleracea, B. villosa* with Sclerotinia infection.
+RNA-Seq + DEG analysis of *B. oleracea, B. villosa* with Sclerotinia infection. To conserve storage on the server, we will run teach species separately.
 
 ## Usage
 ```bash
@@ -16,16 +16,17 @@ cd RNAseq_Brassica_Sclerotinia
 
 `FastQC` and `DESeq2` should already be installed.
 
+## *Brassica villosa* (BRA1896)
 ### 1. Data Retrieval
 
-Run the below command to download the RNAseq data in the background.
+Run the below command to download the RNAseq data for *B. villosa* in the background.
 ```bash
-nohup ./scripts/download_rnaseq.sh data/PRJNA706136.txt > data/download_rnaseq.log 2>&1 &
+nohup ./scripts/download_rnaseq.sh data/N1896*.txt > data/download_rnaseq.log 2>&1 &
 ```
 ### 2. QC
-Run the below command to perform QC with `FastQC` on the .fastq files for each run.
+Run the below command to perform QC with `FastQC` on the .fastq files.
 ```bash
-nohup ./scripts/fastqc > data/fastqc.log 2>&1 &
+nohup ./scripts/run_fastqc.sh N1896* > data/fastqc.log 2>&1 &
 ```
 
 Mapping - `Bowtie2`
