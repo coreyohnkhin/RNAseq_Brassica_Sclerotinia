@@ -28,8 +28,16 @@ Run the below command to perform QC with `FastQC` on the .fastq files.
 ```bash
 nohup ./scripts/run_fastqc.sh N1896* > data/fastqc.log 2>&1 &
 ```
-
-Mapping - `Bowtie2`
+All reads for this data pass QC.
+### 3. Mapping
+Download the reference genomes for *B. oleracea* and *Sclerotinia sclerotiorum*.
+```bash
+nohup ./scripts/download_genomes.sh > data/reference_genomes/genomes.log 2>&1 &
+```
+Map the reads to the reference genomes.
+```bash
+# WIP
+```
 
 DEG - `DESeq2`
 
