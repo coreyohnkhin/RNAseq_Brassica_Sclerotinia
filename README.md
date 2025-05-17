@@ -37,10 +37,23 @@ nohup ./scripts/download_genomes.sh > data/genomes.log 2>&1 &
 ```
 Map the reads to the reference genomes.
 ```bash
-nohup ./scripts/run_bowtie2.sh data/N1896Pet_Control data/reference_genomes/Brassica_oleracea.BOL.dna.toplevel.fa  > data/mapping.log 2>&1 &
-nohup ./scripts/run_bowtie2.sh data/N1896Pet_Control data/reference_genomes/Sclerotinia_sclerotiorum.ASM14694v1.dna.toplevel.fa > data/mapping.log 2>&1 &
-nohup ./scripts/run_bowtie2.sh data/N1896Pet_Infected data/reference_genomes/Brassica_oleracea.BOL.dna.toplevel.fa > data/mapping.log 2>&1 &
-nohup ./scripts/run_bowtie2.sh data/N1896Pet_Infected data/reference_genomes/Sclerotinia_sclerotiorum.ASM14694v1.dna.toplevel.fa > data/mapping.log 2>&1 &
+mkdir -p mapping_logs
+
+nohup ./scripts/run_bowtie2.sh data/N1896Pet_Control \
+     data/reference_genomes/Brassica_oleracea.BOL.dna.toplevel.fa \
+     > mapping_logs/N1896Pet_Control.BOL.bowtie2.log 2>&1 &
+
+nohup ./scripts/run_bowtie2.sh data/N1896Pet_Control \
+     data/reference_genomes/Sclerotinia_sclerotiorum.ASM14694v1.dna.toplevel.fa \
+     > mapping_logs/N1896Pet_Control.Ssc.bowtie2.log 2>&1 &
+
+nohup ./scripts/run_bowtie2.sh data/N1896Pet_Infected \
+     data/reference_genomes/Brassica_oleracea.BOL.dna.toplevel.fa \
+     > mapping_logs/N1896Pet_Infected.BOL.bowtie2.log 2>&1 &
+
+nohup ./scripts/run_bowtie2.sh data/N1896Pet_Infected \
+     data/reference_genomes/Sclerotinia_sclerotiorum.ASM14694v1.dna.toplevel.fa \
+     > mapping_logs/N1896Pet_Infected.Ssc.bowtie2.log 2>&1 &
 ```
 
 DEG - `DESeq2`
