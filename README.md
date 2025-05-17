@@ -12,6 +12,7 @@ cd RNAseq_Brassica_Sclerotinia
 ```bash
 ./scripts/install_sratoolkit.sh
 ./scripts/install_bowtie2.sh
+./scripts/install_samtools.sh
 ```
 
 `FastQC` and `DESeq2` should already be installed.
@@ -36,7 +37,7 @@ nohup ./scripts/download_genomes.sh > data/genomes.log 2>&1 &
 ```
 Map the reads to the reference genomes.
 ```bash
-# WIP
+nohup ./scripts/run_bowtie2.sh > data/mapping.log 2>&1 &
 ```
 
 DEG - `DESeq2`
