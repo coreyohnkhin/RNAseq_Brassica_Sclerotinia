@@ -39,21 +39,30 @@ Map the reads to the reference genomes.
 ```bash
 mkdir -p mapping_logs
 
+# Map B. villosa control samples to B. oleracea reference
 nohup ./scripts/run_bowtie2.sh data/N1896Pet_Control \
      data/reference_genomes/Brassica_oleracea.BOL.dna.toplevel.fa \
+     data/N1896Pet_Control_BOL_mapped 8 \
      > mapping_logs/N1896Pet_Control.BOL.bowtie2.log 2>&1 &
 
+# Map B. villosa control samples to S. sclerotiorum reference
 nohup ./scripts/run_bowtie2.sh data/N1896Pet_Control \
      data/reference_genomes/Sclerotinia_sclerotiorum.ASM14694v1.dna.toplevel.fa \
+     data/N1896Pet_Control_Ssc_mapped 8 \
      > mapping_logs/N1896Pet_Control.Ssc.bowtie2.log 2>&1 &
 
+# Map B. villosa infected samples to B. oleracea reference
 nohup ./scripts/run_bowtie2.sh data/N1896Pet_Infected \
      data/reference_genomes/Brassica_oleracea.BOL.dna.toplevel.fa \
+     data/N1896Pet_Infected_BOL_mapped 8 \
      > mapping_logs/N1896Pet_Infected.BOL.bowtie2.log 2>&1 &
 
+# Map B. villosa infected samples to S. sclerotiorum reference
 nohup ./scripts/run_bowtie2.sh data/N1896Pet_Infected \
      data/reference_genomes/Sclerotinia_sclerotiorum.ASM14694v1.dna.toplevel.fa \
+     data/N1896Pet_Infected_Ssc_mapped 8 \
      > mapping_logs/N1896Pet_Infected.Ssc.bowtie2.log 2>&1 &
+
 ```
 
 DEG - `DESeq2`
