@@ -32,7 +32,7 @@ All reads for this data pass QC.
 ### 3. Mapping
 Download the reference genomes for *B. oleracea* and *Sclerotinia sclerotiorum*.
 ```bash
-nohup ./scripts/download_genomes.sh > data/reference_genomes/genomes.log 2>&1 &
+nohup ./scripts/download_genomes.sh > data/genomes.log 2>&1 &
 ```
 Map the reads to the reference genomes.
 ```bash
