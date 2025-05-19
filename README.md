@@ -52,7 +52,7 @@ data/indices/sclerotinia_sclerotiorum \
 > data/sclerotinia_sclerotiorum_index.log 2>&1 &
 ```
 
-Map the reads to the reference genomes.
+Map the reads to the reference indices.
 ```bash
 nohup ./scripts/map_b_villosa.sh > data/b_villosa_mapping.log 2>&1 &
 ```
