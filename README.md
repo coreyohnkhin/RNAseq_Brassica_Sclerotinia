@@ -1,6 +1,6 @@
 # *Brassica-Sclerotinia* interaction RNAseq
 
-RNA-Seq + DEG analysis of *B. oleracea, B. villosa* with Sclerotinia infection. To conserve storage on the server, we will run teach species separately.
+RNA-Seq + DEG analysis of *B. oleracea, B. villosa* with Sclerotinia infection. To conserve storage on the server, we will run each species separately.
 
 ## Usage
 ```bash
@@ -29,7 +29,7 @@ Run the below command to perform QC with `FastQC` on the .fastq files.
 ```bash
 nohup ./scripts/run_fastqc.sh N1896* > data/fastqc.log 2>&1 &
 ```
-All reads for this data pass QC.
+All reads for this data pass QC, but requires aligner clipping (strong base (G/C) bias in first 10 bp)
 ### 3. Mapping
 Download the reference genomes for *B. oleracea* and *Sclerotinia sclerotiorum*.
 ```bash
@@ -53,6 +53,9 @@ data/indices/sclerotinia_sclerotiorum \
 ```
 
 Map the reads to the reference genomes.
+```bash
+nohup ./scripts/map_b_villosa.sh > data/b_villosa_mapping.log 2>&1 &
+```
 
 Gene count matrices - `featureCounts`
 
