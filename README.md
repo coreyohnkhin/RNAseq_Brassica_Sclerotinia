@@ -64,9 +64,9 @@ Download the reference genome (*B. oleracea* and *S. sclerotiorum*) annotations 
 nohup ./scripts/download_annotations.sh > data/download_annotation.log 2>&1 &
 ```
 
-`featureCounts` analysis.
+Generate gene count matrices.
 ```bash
-# WIP
+nohup ./scripts/b_villosa_featurecounts.sh > data/featurecounts.log 2>&1 &
 ```
 
 ### DEG - `DESeq2`
