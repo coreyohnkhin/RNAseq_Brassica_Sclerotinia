@@ -35,35 +35,24 @@ Download the reference genomes for *B. oleracea* and *Sclerotinia sclerotiorum*.
 ```bash
 nohup ./scripts/download_genomes.sh > data/genomes.log 2>&1 &
 ```
-Map the reads to the reference genomes.
+Build `bowtie2` indices.
 ```bash
-mkdir -p mapping_logs
-
-# Map B. villosa control samples to B. oleracea reference
-nohup ./scripts/run_bowtie2.sh data/N1896Pet_Control \
-     data/reference_genomes/Brassica_oleracea.BOL.dna.toplevel.fa \
-     data/N1896Pet_Control_BOL_mapped 8 \
-     > mapping_logs/N1896Pet_Control.BOL.bowtie2.log 2>&1 &
-
-# Map B. villosa control samples to S. sclerotiorum reference
-nohup ./scripts/run_bowtie2.sh data/N1896Pet_Control \
-     data/reference_genomes/Sclerotinia_sclerotiorum.ASM14694v1.dna.toplevel.fa \
-     data/N1896Pet_Control_Ssc_mapped 8 \
-     > mapping_logs/N1896Pet_Control.Ssc.bowtie2.log 2>&1 &
-
-# Map B. villosa infected samples to B. oleracea reference
-nohup ./scripts/run_bowtie2.sh data/N1896Pet_Infected \
-     data/reference_genomes/Brassica_oleracea.BOL.dna.toplevel.fa \
-     data/N1896Pet_Infected_BOL_mapped 8 \
-     > mapping_logs/N1896Pet_Infected.BOL.bowtie2.log 2>&1 &
-
-# Map B. villosa infected samples to S. sclerotiorum reference
-nohup ./scripts/run_bowtie2.sh data/N1896Pet_Infected \
-     data/reference_genomes/Sclerotinia_sclerotiorum.ASM14694v1.dna.toplevel.fa \
-     data/N1896Pet_Infected_Ssc_mapped 8 \
-     > mapping_logs/N1896Pet_Infected.Ssc.bowtie2.log 2>&1 &
-
+mkdir -p data/indices
+# Brassica oleracea reference genome index
+nohup ./software/bowtie2-2.5.4-linux-x86_64/bowtie2-build \
+data/reference_genomes/Brassica_oleracea.BOL.dna.toplevel.fa \
+data/indices/brassica_oleracea \
+> data/brassica_oleracea_index.log 2>&1 &
+# Sclerotinia sclerotiorum reference genome index
+nohup ./software/bowtie2-2.5.4-linux-x86_64/bowtie2-build \
+data/reference_genomes/Sclerotinia_sclerotiorum.ASM14694v1.dna.toplevel.fa \
+data/indices/sclerotinia_sclerotiorum \
+> data/sclerotinia_sclerotiorum_index.log 2>&1 &
 ```
+
+Map the reads to the reference genomes.
+
+Gene count matrices - `featureCounts`
 
 DEG - `DESeq2`
 
