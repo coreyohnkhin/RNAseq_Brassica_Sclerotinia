@@ -38,11 +38,13 @@ nohup ./scripts/download_genomes.sh > data/genomes.log 2>&1 &
 Build `bowtie2` indices.
 ```bash
 mkdir -p data/indices
+
 # Brassica oleracea reference genome index
 nohup ./software/bowtie2-2.5.4-linux-x86_64/bowtie2-build \
 data/reference_genomes/Brassica_oleracea.BOL.dna.toplevel.fa \
 data/indices/brassica_oleracea \
 > data/brassica_oleracea_index.log 2>&1 &
+
 # Sclerotinia sclerotiorum reference genome index
 nohup ./software/bowtie2-2.5.4-linux-x86_64/bowtie2-build \
 data/reference_genomes/Sclerotinia_sclerotiorum.ASM14694v1.dna.toplevel.fa \
