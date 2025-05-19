@@ -92,4 +92,12 @@ Output:
 
  - `results/results_[BOL/Ssc]infected_vs_control.csv` - log₂FC, pval, padj for each DEG
 
- - `figures/heatmap_top50_[BOL/Ssc].pdf` - clustered expression map
+ - `figures/heatmap_top50_[BOL/Ssc]_.pdf` - clustered expression map
+
+### 6. Gene set enrichment analysis
+
+Also run locally.
+
+```bash
+Rscript scripts/gsea_b_villosa.r results/results_BOL_infected_vs_control.csv results/results_Ssc_infected_vs_control.csv
+```
