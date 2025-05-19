@@ -53,7 +53,7 @@ data/indices/sclerotinia_sclerotiorum \
 > data/sclerotinia_sclerotiorum_index.log 2>&1 &
 ```
 
-Map the reads to the reference indices.
+Map the reads to the reference indices. This removes the downloaded RNA-seq data after each replicate is mapped.
 ```bash
 nohup ./scripts/map_b_villosa.sh > data/b_villosa_mapping.log 2>&1 &
 ```
