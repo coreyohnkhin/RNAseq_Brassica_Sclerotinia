@@ -101,3 +101,37 @@ Also run locally.
 ```bash
 Rscript scripts/gsea_b_villosa.r results/results_BOL_infected_vs_control.csv results/results_Ssc_infected_vs_control.csv
 ```
+## *Brassica villosa* (BRA1896)
+### 1. Data retrieval
+```bash
+nohup ./scripts/download_rnaseq.sh data/N1909*.txt \
+      > data/download_rnaseq_N1909.log 2>&1 &
+```
+### 2. QC
+```bash
+nohup ./scripts/run_fastqc.sh N1909* \
+      > data/fastqc_N1909.log 2>&1 &
+```
+
+### 3. Mapping
+```bash
+# use the same reference genomes / indices built earlier
+nohup ./scripts/map_b_oleracea.sh > data/b_oleracea_mapping.log 2>&1 &
+```
+
+### 4. Gene counts
+```bash
+nohup ./scripts/b_oleracea_featurecounts.sh > data/featurecounts_N1909.log 2>&1 &
+```
+
+### 5. DEG analysis
+```bash
+Rscript deg_b_oleraceaBOL.r
+Rscript deg_b_oleraceaSsc.r
+```
+
+### 6. GSEA
+```bash
+Rscript gsea_b_oleracea.r results/results_BOL_infected_vs_control.csv \
+                           results/results_Ssc_infected_vs_control.csv
+```
