@@ -1,6 +1,6 @@
 # *Brassica-Sclerotinia* interaction RNAseq
 
-RNA-Seq + DEG analysis of *B. oleracea, B. villosa* with Sclerotinia infection. To conserve storage on the server, we will run each species separately.
+RNA-Seq + DEG analysis of [*B. oleracea, B. villosa* with Sclerotinia infection](https://pubmed.ncbi.nlm.nih.gov/36966424/). To conserve storage on the server, we will run each species separately. A lot of the commands will be run with the `nohup` command. It's tedious to keep a live terminal for these long processes (esp. the RNA-seq download and read mapping). Everything should be run in sequence, however, so use `jobs` to check if each process is finished before continuing. Use `watch tail [logfile.log]` to view the live progress and check for any errors.
 
 ## Usage
 ```bash
@@ -12,7 +12,7 @@ cd RNAseq_Brassica_Sclerotinia
 ```bash
 ./scripts/install_sratoolkit.sh
 ./scripts/install_bowtie2.sh
-./scripts/install_samtools.sh
+./scripts/install_subread.sh
 ```
 
 `FastQC` and `DESeq2` should already be installed.
@@ -57,9 +57,20 @@ Map the reads to the reference indices.
 nohup ./scripts/map_b_villosa.sh > data/b_villosa_mapping.log 2>&1 &
 ```
 
-Gene count matrices - `featureCounts`
+### 4. Generate gene count matrices
 
-DEG - `DESeq2`
+Download the reference genome (*B. oleracea* and *S. sclerotiorum*) annotations (GFF3 format).
+```bash
+nohup ./scripts/download_annotations.sh > data/download_annotation.log 2>&1 &
+```
+
+`featureCounts` analysis.
+```bash
+# WIP
+```
+
+### DEG - `DESeq2`
+WIP
 
  - check metadata for experimental bias etc.
 
