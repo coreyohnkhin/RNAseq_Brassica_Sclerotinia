@@ -1,3 +1,5 @@
+#!/bin/bash
+
 mkdir -p N1896Pet_Control_bowtie2
 mkdir -p N1896Pet_Control_bowtie2/BOL
 mkdir -p N1896Pet_Control_bowtie2/Ssc
