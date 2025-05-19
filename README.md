@@ -12,6 +12,7 @@ cd RNAseq_Brassica_Sclerotinia
 ```bash
 ./scripts/install_sratoolkit.sh
 ./scripts/install_bowtie2.sh
+./scripts/install_samtools.sh
 ./scripts/install_subread.sh
 ./scripts/install_gffread.sh
 ```
@@ -53,7 +54,7 @@ data/indices/sclerotinia_sclerotiorum \
 > data/sclerotinia_sclerotiorum_index.log 2>&1 &
 ```
 
-Map the reads to the reference indices. This removes the downloaded RNA-seq data after each replicate is mapped.
+Map the reads to the reference indices. This removes the downloaded RNA-seq data after each replicate is mapped and converts SAM to BAM.
 ```bash
 nohup ./scripts/map_b_villosa.sh > data/b_villosa_mapping.log 2>&1 &
 ```
