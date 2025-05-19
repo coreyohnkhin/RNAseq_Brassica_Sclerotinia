@@ -80,9 +80,16 @@ Generate gene count matrices.
 nohup ./scripts/b_villosa_featurecounts.sh > data/featurecounts.log 2>&1 &
 ```
 
-### DEG - `DESeq2`
-WIP
+### 5. Differentially expressed genes analysis
+Run the below **locally** (will need the download the gene count matrices off of the server) and then check the output.
+```bash
+Rscript deg_b_villosaBOL.r
+Rscript deg_b_villosaSsc.r
+```
+Output:
 
- - check metadata for experimental bias etc.
+ - **Significant genes count** - prints in console n = # DEGs
 
- - functional analysis with *A. thaliana* reference, focus on well-annotated genes
+ - `results/results_[BOL/Ssc]infected_vs_control.csv` - log₂FC, pval, padj for each DEG
+
+ - `figures/heatmap_top50_[BOL/Ssc].pdf` - clustered expression map
