@@ -13,6 +13,7 @@ cd RNAseq_Brassica_Sclerotinia
 ./scripts/install_sratoolkit.sh
 ./scripts/install_bowtie2.sh
 ./scripts/install_subread.sh
+./scripts/install_gffread.sh
 ```
 
 `FastQC` and `DESeq2` should already be installed.
@@ -63,7 +64,16 @@ Download the reference genome (*B. oleracea* and *S. sclerotiorum*) annotations 
 ```bash
 nohup ./scripts/download_annotations.sh > data/download_annotation.log 2>&1 &
 ```
+Convert annotations to GTF
 
+```bash
+./software/gffread/gffread \
+    data/annotations/Brassica_oleracea.BOL.61.gff3 \
+    -T -o data/annotations/Brassica_oleracea.BOL.61.gtf
+./software/gffread/gffread \
+    data/annotations/Sclerotinia_sclerotiorum.ASM14694v1.61.gff3 \
+    -T -o data/annotations/Sclerotinia_sclerotiorum.ASM14694v1.61.gtf
+```
 Generate gene count matrices.
 ```bash
 nohup ./scripts/b_villosa_featurecounts.sh > data/featurecounts.log 2>&1 &
